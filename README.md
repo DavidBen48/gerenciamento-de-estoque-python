@@ -1,4 +1,4 @@
-# **Desafio - Aceleradora Ágil**
+# **Desafio da Aceleradora Ágil 2025/1**
 ## Tema: Gerenciamento de Produtos para a Loja AgilStore
 ## Tecnologias Usadas: Python e Json
 ## Feito por: David Ben

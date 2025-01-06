@@ -131,8 +131,8 @@ Para rodar o projeto diretamente no seu CMD (Prompt de Comando), siga os passos 
    cd gerenciamento-de-estoque-python
    ```
 
-4. **Instale a biblioteca `tabulate`:**
-   Caso não tenha a biblioteca `tabulate` instalada, você pode instalá-la com o comando:
+4. **Instale a biblioteca `tabulate` (OPCIONAL):**
+   Você pode instalar essa biblioteca manualmente se quiser que o código tenha 100% de êxito, mas mesmo se não instalar ele irá rodar sem nenhum problema. Se você for apenas uma pessoa precavida, insira esse comando:
    ```bash
    pip install tabulate
    ```
@@ -172,8 +172,8 @@ Se preferir usar o Visual Studio Code (VSC), siga os passos abaixo:
    code .
    ```
 
-5. **Instale a biblioteca `tabulate`:**
-   Caso não tenha a biblioteca `tabulate` instalada, abra o terminal integrado no VSC (pressionando `Ctrl + ``) e execute:
+5. **Instale a biblioteca `tabulate` (OPCIONAL):**
+   Não é obrigatório a instalação, apenas para ter uma segurança maior. Se quiser se precaver, abra o terminal integrado no VSC (pressionando `Ctrl + ``) e execute:
    ```bash
    pip install tabulate
    ```

@@ -1,5 +1,6 @@
 # **Desafio - Aceleradora Ágil**
 ## Tema: Gerenciamento de Produtos para a Loja AgilStore
+## Tecnologia Usada: Python e Json
 ## Feito por: David Ben
 > ### Copyright 2025 | garanto que todo o texto e código gerado foram feitos totalmente por mim sem uso de ChatGPT ou outras tecnologias artificiais.
 

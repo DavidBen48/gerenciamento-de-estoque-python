@@ -1,7 +1,12 @@
 # **Desafio - Aceleradora Ágil**
-### Tema: Gerenciamento de Produtos para a Loja AgilStore
+## Tema: Gerenciamento de Produtos para a Loja AgilStore
+## Feito por: David Ben
+> ### Copyright 2025 | garanto que todo o texto e código gerado foram feitos totalmente por mim sem uso de ChatGPT ou outras tecnologias artificiais.
 
-Enunciado: A AgilStore é uma pequena loja de eletrônicos que recentemente expandiu seu catálogo de produtos para incluir uma variedade maior de itens, desde smartphones e laptops até acessórios como cabos, carregadores e fones de ouvido. Com o aumento do número de produtos e a diversidade das categorias, a equipe de gerenciamento percebeu a necessidade de otimizar o controle do inventário para garantir que os produtos estejam sempre disponíveis para os clientes e que os níveis de estoque sejam mantidos de forma eficiente.
+---
+
+> ## Enunciado
+A AgilStore é uma pequena loja de eletrônicos que recentemente expandiu seu catálogo de produtos para incluir uma variedade maior de itens, desde smartphones e laptops até acessórios como cabos, carregadores e fones de ouvido. Com o aumento do número de produtos e a diversidade das categorias, a equipe de gerenciamento percebeu a necessidade de otimizar o controle do inventário para garantir que os produtos estejam sempre disponíveis para os clientes e que os níveis de estoque sejam mantidos de forma eficiente.
 Atualmente, o controle de inventário está sendo feito manualmente em planilhas, o que tem se mostrado ineficiente e propenso a erros, especialmente quando se trata de atualizações rápidas ou buscas específicas. Para resolver esse problema, a loja decidiu desenvolver uma aplicação que permita a gestão automatizada do inventário de produtos, facilitando operações como adicionar novos produtos, listar produtos existentes, atualizar informações e remover itens obsoletos.
 
 Requisitos Funcionais:
@@ -43,9 +48,68 @@ Exibir mensagem apropriada se nenhum produto for encontrado.
 Persistência de Dados:
 Implementar salvamento automático dos dados em um arquivo JSON para que os produtos não sejam perdidos ao encerrar a aplicação.
 
+> ## Resolução Do Projeto:
+
+O código implementa um sistema de gerenciamento de inventário simples, que permite adicionar, listar, atualizar, excluir e buscar produtos. Vou explicar as funções e o papel de cada item importado, com ênfase na parte do JSON, que é o diferencial do código.
+
+#### 1. **Importações**
+- **`import json`**:
+  - O módulo `json` é utilizado para manipular dados no formato JSON (JavaScript Object Notation). No código, ele é usado para carregar e salvar o inventário de produtos em um arquivo JSON. Isso permite que os dados sejam persistidos entre execuções do programa, ou seja, os dados não são perdidos quando o programa é fechado.
+  
+- **`import random`**:
+  - O módulo `random` é utilizado para gerar dados aleatórios. No código, ele é usado para gerar IDs de produtos aleatórios.
+
+- **`import string`**:
+  - O módulo `string` fornece uma série de funções e constantes, como o conjunto de letras do alfabeto. É usado em conjunto com o `random` para gerar IDs com letras aleatórias.
+
+- **`from tabulate import tabulate`**:
+  - O `tabulate` é uma biblioteca que permite formatar tabelas de forma bonita e legível no terminal. Ele é usado para exibir os produtos de maneira organizada quando listamos ou buscamos produtos.
+
 ---
 
-## Como rodar o projeto em sua máquina?
+#### 2. **Funções da Classe `AgilStore`**
+
+- **`__init__(self, arquivo="inventario.json")`**:
+  - O método `__init__` é o inicializador da classe, sendo chamado quando um objeto `AgilStore` é criado. Ele define o nome do arquivo onde os dados serão armazenados (por padrão, `inventario.json`) e chama o método `carregar_dados` para carregar os dados do arquivo.
+  
+- **`carregar_dados(self)`**:
+  - Esse método tenta abrir o arquivo `inventario.json` e carrega os dados nele contidos para o atributo `inventario`. Se o arquivo não for encontrado, ele inicializa `inventario` como uma lista vazia.
+  - **Aqui é onde o JSON é utilizado**: O arquivo JSON contém os dados dos produtos e é carregado utilizando a função `json.load()`, que converte o conteúdo do arquivo JSON em uma estrutura de dados Python (geralmente um dicionário ou lista).
+
+- **`salvar_dados(self)`**:
+  - Esse método salva os dados do inventário no arquivo `inventario.json`. Ele usa a função `json.dump()` para converter a lista de produtos (`inventario`) em formato JSON e gravá-la no arquivo. O parâmetro `indent=4` é usado para formatar o JSON de maneira legível, com uma indentação de 4 espaços.
+
+- **`gerar_id(self)`**:
+  - Esse método gera um ID único para cada produto. Ele usa as funções do módulo `random` para gerar duas letras maiúsculas seguidas de quatro dígitos numéricos. Este ID é único, mas não garante que não haverá colisões, já que é gerado de forma aleatória.
+
+- **`adicionar_produto(self)`**:
+  - Esse método permite adicionar um novo produto ao inventário. Ele solicita ao usuário o nome, categoria, quantidade e preço do produto. Depois, ele gera um ID único para o produto e o adiciona à lista `inventario`. Em seguida, ele chama o método `salvar_dados()` para salvar o inventário atualizado no arquivo.
+  
+- **`listar_produtos(self)`**:
+  - Esse método lista todos os produtos no inventário. Caso o inventário esteja vazio, ele exibe uma mensagem informando que não há produtos cadastrados. Caso contrário, ele usa a biblioteca `tabulate` para formatar e exibir os dados dos produtos em uma tabela no terminal.
+
+- **`atualizar_produto(self)`**:
+  - Esse método permite atualizar as informações de um produto existente. O usuário deve fornecer o ID do produto e escolher qual campo (nome, categoria, quantidade ou preço) deseja atualizar. Depois de realizar a atualização, o método chama `salvar_dados()` para persistir as mudanças no arquivo JSON.
+
+- **`excluir_produto(self)`**:
+  - Esse método permite excluir um produto do inventário. O usuário fornece o ID do produto e, caso o produto seja encontrado, ele será removido da lista `inventario`. Em seguida, as alterações são salvas no arquivo JSON.
+
+- **`buscar_produto(self)`**:
+  - Esse método permite buscar produtos no inventário pelo ID ou nome (parte do nome). Ele solicita um termo de pesquisa e filtra os produtos que contêm esse termo. Os resultados são exibidos de forma formatada usando o `tabulate`.
+
+---
+
+### **3. Implementação do JSON: Persistência de Dados**
+
+- **`carregar_dados(self)`**:
+  - A função `json.load(file)` é responsável por carregar o conteúdo do arquivo `inventario.json` e convertê-lo para um formato que o Python possa manipular, geralmente um dicionário ou lista. Isso permite que os dados sejam lidos e trabalhados como objetos Python durante a execução do programa.
+
+- **`salvar_dados(self)`**:
+  - A função `json.dump(self.inventario, file, indent=4)` é responsável por salvar o inventário de produtos no arquivo `inventario.json`. O parâmetro `indent=4` é utilizado para garantir que o JSON seja gravado de maneira legível e estruturada, facilitando a leitura dos dados quando necessário.
+
+---
+
+> ## Como rodar o projeto em sua máquina?
 
 ### 1. Clonando o projeto no CMD e rodando o mesmo no próprio CMD:
 

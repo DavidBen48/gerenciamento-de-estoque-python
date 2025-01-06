@@ -15,12 +15,12 @@ Gerar um id único para cada produto automaticamente.
 
 2. Listar Produtos: Exibir todos os produtos cadastrados no inventário. Mostrar uma tabela com as seguintes colunas:
 ```
-ID
-Nome do Produto
-Categoria
-Quantidade em Estoque
-Preço
-Permitir opções de filtragem por categoria ou ordenação por nome, quantidade ou preço (opcional).
+- ID
+- Nome do Produto
+- Categoria
+- Quantidade em Estoque
+- Preço
+- Permitir opções de filtragem por categoria ou ordenação por nome, quantidade ou preço (opcional).
 ```
 
 3. Atualizar Produto: Atualizar as informações de um produto existente identificado pelo seu id.
@@ -43,8 +43,6 @@ Exibir mensagem apropriada se nenhum produto for encontrado.
 Persistência de Dados:
 Implementar salvamento automático dos dados em um arquivo JSON para que os produtos não sejam perdidos ao encerrar a aplicação.
 
-Aqui está uma explicação detalhada para o README, conforme solicitado:
-
 ---
 
 ## Como rodar o projeto em sua máquina?
@@ -59,14 +57,13 @@ Para rodar o projeto diretamente no seu CMD (Prompt de Comando), siga os passos 
 2. **Clone o repositório do projeto:**
    Execute o seguinte comando no CMD para clonar o repositório para a sua máquina (certifique-se de que o Git está instalado):
    ```bash
-   git clone https://github.com/usuario/repositorio.git
+   git clone https://github.com/DavidBen48/gerenciamento-de-estoque-python.git
    ```
-   Substitua `https://github.com/usuario/repositorio.git` pela URL correta do repositório que você deseja clonar.
 
 3. **Navegue até a pasta do projeto:**
    Após o repositório ser clonado, entre na pasta do projeto com o comando:
    ```bash
-   cd nome-do-repositorio
+   cd gerenciamento-de-estoque-python
    ```
 
 4. **Instale a biblioteca `tabulate`:**
@@ -95,13 +92,13 @@ Se preferir usar o Visual Studio Code (VSC), siga os passos abaixo:
 2. **Clone o repositório do projeto:**
    Execute o seguinte comando no CMD para clonar o repositório para a sua máquina:
    ```bash
-   git clone https://github.com/usuario/repositorio.git
+   git clone https://github.com/DavidBen48/gerenciamento-de-estoque-python.git
    ```
 
 3. **Navegue até a pasta do projeto:**
    Entre na pasta do projeto com o comando:
    ```bash
-   cd nome-do-repositorio
+   cd gerenciamento-de-estoque-python
    ```
 
 4. **Abra o Visual Studio Code:**
@@ -135,18 +132,11 @@ Se você tiver dificuldades para rodar o projeto na sua máquina, você pode exe
    No Google Colab, clique em `Arquivo` > `Abrir notebook`. Na aba `GitHub`, cole o link do repositório GitHub do projeto (ou carregue os arquivos diretamente, se necessário).
 
 3. **Instale a biblioteca `tabulate`:**
-   No Colab, você pode instalar a biblioteca `tabulate` diretamente no ambiente com o comando abaixo. Execute a célula de código para instalar:
-   ```python
-   !pip install tabulate
-   ```
+   No Colab, você pode instalar a biblioteca `tabulate` diretamente no ambiente com o comando abaixo. Ele já estará em amostra e no gatilho para poder instalar. Execute a célula que aparecer indicando. (pura precaução).
 
 4. **Execute o código:**
    Depois de carregar o projeto e instalar as dependências, basta executar as células de código clicando no botão de play ao lado de cada célula.
 
-Com isso, o projeto estará rodando no Google Colab e você poderá interagir com ele diretamente no ambiente da web!
-
----
-
-Agora, com essas opções, você pode rodar o projeto de diferentes maneiras, seja no CMD, no Visual Studio Code, ou no Google Colab. Se tiver algum problema, não hesite em consultar os tutoriais ou procurar mais ajuda!
+Com isso, o projeto estará rodando no Google Colab e você poderá interagir com ele diretamente no ambiente da web, sem a necessidade de baixar ou clonar o projeto em sua máquina!
 
 ---
